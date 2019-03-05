@@ -27,11 +27,9 @@ export default {
       axios
         .delete(`https://jsonplaceholder.typicode.com/todos/${id}`)
         .then(
-          response =>
-            (this.todos = this.todos.filter(todo => todo.id !== todo.id))
+          response => (this.todos = this.todos.filter(todo => todo.id !== id))
         )
         .catch(error => console.log(error));
-      this.todos = this.todos.filter(todo => todo.id !== id);
     },
     addTodo(newTodo) {
       const { title, completed } = newTodo;

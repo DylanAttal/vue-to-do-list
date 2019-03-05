@@ -40,4 +40,8 @@ export default {
   cursor: pointer;
   float: right;
 }
+
+.del:focus {
+  outline: none;
+}
 </style>
