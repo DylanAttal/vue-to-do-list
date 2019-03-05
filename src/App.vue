@@ -29,7 +29,15 @@ export default {
       this.todos = this.todos.filter(todo => todo.id !== id);
     },
     addTodo(newTodo) {
-      this.todos = [...this.todos, newTodo];
+      const { title, completed } = newTodo;
+
+      axios
+        .post("https://jsonplaceholder.typicode.com/todos", {
+          title,
+          completed
+        })
+        .then(response => (this.todos = [...this.todos, response.data]))
+        .catch(error => console.log(error));
     }
   },
   created() {
